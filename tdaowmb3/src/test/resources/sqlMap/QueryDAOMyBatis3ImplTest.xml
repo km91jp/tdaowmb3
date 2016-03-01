@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QueryDAOMyBatis3ImplTest">
+
+    <select id="selectOneDataForObject" resultType="com.github.km91jp.tdaowmb3.dto.Tdaowmb3test">
+        select * from tdaowmb3_test where id = #{id}
+    </select>
+
+    <select id="selectOneDataForMap" resultType="java.util.Map">
+        select * from tdaowmb3_test where id = #{id}
+    </select>
+
+    <select id="selectMultipleDataForObject" resultType="com.github.km91jp.tdaowmb3.dto.Tdaowmb3test">
+        select * from tdaowmb3_test order by id
+    </select>
+
+    <select id="selectMultipleDataForMap" resultType="java.util.Map">
+        select * from tdaowmb3_test order by id
+    </select>
+
+</mapper>

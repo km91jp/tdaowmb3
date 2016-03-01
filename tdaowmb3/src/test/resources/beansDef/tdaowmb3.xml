@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- アノテーションによる設定 -->
+    <context:annotation-config />
+
+    <!-- コンポーネントスキャン設定 -->
+    <context:component-scan base-package="com.github.km91jp.tdaowmb3.sample.b000001" />
+
+    <!-- import -->
+    <import resource="dataSource.xml" />
+
+    <bean id="queryDAO" class="com.github.km91jp.tdaowmb3.QueryDAOMyBatis3Impl">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="queryRowHandleDAO"
+        class="com.github.km91jp.tdaowmb3.QueryRowHandleDAOMyBatis3Impl">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+    </bean>
+    <bean id="updateDAO" class="com.github.km91jp.tdaowmb3.UpdateDAOMyBatis3Impl">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+        <property name="batchSqlSessionTemplate" ref="batchSqlSessionTemplate" />
+        <property name="transactionManager" ref="transactionManager" />
+    </bean>
+
+</beans>

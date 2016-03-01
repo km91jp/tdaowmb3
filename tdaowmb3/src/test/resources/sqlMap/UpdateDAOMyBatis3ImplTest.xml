@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UpdateDAOMyBatis3ImplTest">
+
+    <insert id="insert">
+        insert into tdaowmb3_test values (#{id}, #{body})
+    </insert>
+
+    <update id="update">
+        update tdaowmb3_test set body = #{body} where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from tdaowmb3_test where id = #{id}
+    </delete>
+
+</mapper>
